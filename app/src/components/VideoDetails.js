@@ -5,8 +5,7 @@ export const VideoDetails = ({ video }) => {
   const { url, height, width } = video.snippet.thumbnails.high;
   const { videoId } = video.id;
   const embed = `https://www.youtube.com/embed/${videoId}`;
-  console.log(videoId);
-  console.log(embed);
+ 
   return (
     <div>
       <h1>Video Details</h1>
