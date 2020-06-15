@@ -3,7 +3,10 @@ import React from "react";
 export const VideoDetails = ({ video }) => {
   if (!video) return <h1>...loading</h1>;
   const { url, height, width } = video.snippet.thumbnails.high;
-  const embed = ``
+  const { videoId } = video.id;
+  const embed = `https://www.youtube.com/embed/${videoId}`;
+  console.log(videoId);
+  console.log(embed);
   return (
     <div>
       <h1>Video Details</h1>
@@ -14,7 +17,7 @@ export const VideoDetails = ({ video }) => {
           type="text/html"
           width="720"
           height="405"
-          src="https://www.youtube.com/embed/M7lc1UVf-VE"
+          src={embed}
           frameborder="0"
           allowfullscreen
         />
