@@ -1,12 +1,14 @@
 import React from "react";
 
 export const VideoDetails = ({ video }) => {
-  if (!video) return <h1>...loading</h1>;
-  const { url, height, width } = video.snippet.thumbnails.high;
+  if (!video) return <h1>Loading.....</h1>;
+
   const { videoId } = video.id;
-  const embed = `https://www.youtube.com/embed/${videoId}`;
-  console.log(videoId);
-  console.log(embed);
+  const { id } = video;
+  let ID = videoId ? videoId : id;
+
+  const embed = `https://www.youtube.com/embed/${ID}`;
+
   return (
     <div>
       <h1>Video Details</h1>

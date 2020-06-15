@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 import youtube from "./api/youtube";
@@ -8,13 +8,34 @@ export const App = () => {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
 
+  useEffect(() => {
+    async function fetchData() {
+      const {
+        data: { items: mostPopular },
+      } = await youtube.get("videos", {
+        params: {
+          part: "snippet",
+          maxResults: 15,
+          chart: "mostPopular",
+          key: process.env.REACT_APP_API_KEY,
+        },
+      });
+
+      setVideos(mostPopular);
+      setSelectedVideo(mostPopular[0]);
+    }
+
+    fetchData();
+  }, []);
+
   const handleSubmit = async (searchTerm) => {
     const {
       data: { items: videos },
     } = await youtube.get("search", {
       params: {
         part: "snippet",
-        maxResults: 10,
+        maxResults: 15,
+        type: "video",
         key: process.env.REACT_APP_API_KEY,
         q: searchTerm,
       },
