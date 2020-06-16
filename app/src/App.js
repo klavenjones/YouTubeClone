@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+
 import "./App.css";
+import logo from "./logo.png";
 
 import youtube from "./api/youtube";
 import { SearchBar, VideoDetails, VideoList } from "./components";
@@ -46,10 +48,29 @@ export const App = () => {
   };
 
   return (
-    <div className="App">
-      <SearchBar onSubmit={handleSubmit} />
-      <VideoDetails video={selectedVideo} />
-      <VideoList videos={videos} onVideoSelect={setSelectedVideo} />
+    <div className="container">
+      <div className="row">
+        <div className="twelve columns">
+          <nav>
+            <div className="logo">
+              <img src={logo} alt="Logo" />
+            </div>
+            <SearchBar onSubmit={handleSubmit} />
+          </nav>
+        </div>
+      </div>
+      <div className="row content">
+        <div className="seven columns">
+          <div className="featured">
+            <VideoDetails video={selectedVideo} />
+          </div>
+        </div>
+        <div className="five columns border">
+          <div className="list">
+            <VideoList videos={videos} onVideoSelect={setSelectedVideo} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

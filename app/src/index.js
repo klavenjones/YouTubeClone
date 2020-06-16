@@ -3,6 +3,9 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
+import "skeleton-css/css/normalize.css";
+import "skeleton-css/css/skeleton.css";
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

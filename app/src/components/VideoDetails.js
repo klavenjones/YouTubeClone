@@ -10,14 +10,14 @@ export const VideoDetails = ({ video }) => {
   const embed = `https://www.youtube.com/embed/${ID}`;
 
   return (
-    <div>
-      <h1>Video Details</h1>
+    <div className="detail">
+      <h1>Featured Video</h1>
       <h2>{video.snippet.title}</h2>
       <div>
         <iframe
           id="ytplayer"
           type="text/html"
-          width="720"
+          class="u-full-width"
           height="405"
           src={embed}
           frameborder="0"

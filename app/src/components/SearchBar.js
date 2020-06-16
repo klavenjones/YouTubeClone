@@ -12,8 +12,20 @@ export const SearchBar = ({ onSubmit }) => {
   };
 
   return (
-    <div>
-      <input type="text" onChange={handleChange} onKeyPress={onKeyPress} />
+    <div className="search-bar">
+      <input
+        className="search__input u-full-width"
+        type="text"
+        onChange={handleChange}
+        onKeyPress={onKeyPress}
+        placeholder="Search Videos"
+      />
+      <button
+        onClick={() => onSubmit(onSubmit(searchTerm))}
+        className="search__button"
+      >
+        Search
+      </button>
     </div>
   );
 };
