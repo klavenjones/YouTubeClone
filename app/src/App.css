@@ -3,6 +3,7 @@ html {
   box-sizing: border-box;
   position: relative;
   padding-top: 100px;
+  font-family: "Roboto", sans-serif !important;
 }
 
 nav {
@@ -55,11 +56,13 @@ nav {
 
 .featured h1 {
   font-size: 3.5rem;
+  font-size: 5vw;
   font-weight: 700;
 }
 
 .featured h2 {
-  font-size: 2.5rem;
+  font-size: 2.25rem;
+  font-weight: 400;
 }
 
 .list {
@@ -72,9 +75,10 @@ nav {
 }
 
 .list h2 {
-  font-size: 1.5rem;
+  font-size: 1.65rem;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.9);
+  cursor: pointer;
 }
 
 .list__item {
